@@ -2,39 +2,59 @@ import React, { Component } from "react";
 import "./App.css";
 
 import Person from "./components/Person/person.component";
-import UserInput from "./components/UserInput/UserInput.component";
-import UserOutput from "./components/UserOutput/UserOutput.component";
 
 class App extends Component {
   state = {
-    username: 'Pascal'
-  }
+    persons: [
+      { name: "Pascal", year: 30 },
+      { name: "Pauline", year: 20 },
+      { name: "Pius", year: 18 }
+    ],
+    otherState: "some other state"
+  };
 
-  userNameChangedHandler = (event) => {
+  switchNameHandler = newName => {
     this.setState({
-      username: event.target.value
-    })
-  }
+      persons: [
+        { name: newName, year: 30 },
+        { name: "Joan", year: 20 },
+        { name: "Pius", year: 28 }
+      ]
+    });
+  };
+
+  nameChangedHandler = event => {
+    this.setState({
+      persons: [
+        { name: "Pascal", year: 30 },
+        { name: event.target.value, year: 20 },
+        { name: "Pius", year: 28 }
+      ]
+    });
+  };
   render() {
     return (
       <div className="App">
-         <ol>
-          <li>Create TWO new components: UserInput and UserOutput</li>
-          <li>UserInput should hold an input element, UserOutput two paragraphs</li>
-          <li>Output multiple UserOutput components in the App component (any paragraph texts of your choice)</li>
-          <li>Pass a username (of your choice) to UserOutput via props and display it there</li>
-          <li>Add state to the App component (=> the username) and pass the username to the UserOutput component</li>
-          <li>Add a method to manipulate the state (=> an event-handler method)</li>
-          <li>Pass the event-handler method reference to the UserInput component and bind it to the input-change event</li>
-          <li>Ensure that the new input entered by the user overwrites the old username passed to UserOutput</li>
-          <li>Add two-way-binding to your input (in UserInput) to also display the starting username</li>
-          <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
-        </ol>
-        
-        <UserInput changed={this.userNameChangedHandler} currentName={this.state.username}/>
-        <UserOutput userName={this.state.username}/>
-        <UserOutput userName={this.state.username}/>
-        <UserOutput userName='max' />
+        <h1>You are learning react</h1>
+        <button onClick={() => this.switchNameHandler("Paul")}>
+          Switch name
+        </button>
+        <Person
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].year}
+        />
+        <Person
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].year}
+          click={this.switchNameHandler.bind(this, "Pascal!!")}
+          changed={this.nameChangedHandler}
+        >
+          I like Swimming
+        </Person>
+        <Person
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].year}
+        />
       </div>
     );
   }

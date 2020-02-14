@@ -19,3 +19,40 @@
 .show {
   display: none;
 }
+
+.App button {
+  background-color: #ed5565;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-weight: Bold;
+  letter-spacing: 2px;
+}
+
+.App button:hover {
+  background-color: #2286e4;
+  color: #000;
+  cursor: pointer;
+}
+
+.App button.Red {
+  background-color: #ed5565;
+  color: #fff;
+}
+
+.App button.Red:hover {
+  background-color: #ed5594;
+  color: #000;
+}
+
+.App button.Blue {
+  background-color: #2286e4;
+  color: #fff;
+}
+
+.App button.Blue:hover {
+  background-color: aqua;
+  color: #fff;
+}

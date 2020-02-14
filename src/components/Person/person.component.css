@@ -16,3 +16,9 @@
     font-family: 'Ubuntu', sans-serif;
 
 }
+
+@media(max-width: 340px) {
+    .Person input {
+        width: 90%;
+    }
+}

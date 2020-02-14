@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import classes from "./App.css";
 
 import Person from "./components/Person/person.component";
 
@@ -43,18 +43,8 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: "#ed5565",
-      textTransform: "uppercase",
-      color: "#fff",
-      border: "none",
-      borderRadius: "5px",
-      padding: "8px",
-      fontWeight: "Bold",
-      letterSpacing: "2px"
-    };
-
     let persons = null;
+    let btnClass = '';
 
     if (this.state.showPersons) {
       persons = (
@@ -73,23 +63,22 @@ class App extends Component {
         </div>
       );
 
-      style.backgroundColor = "aqua";
-      style.color = "#000";
+          btnClass = classes.Red;
     }
 
-    let showMe = ["show"];
-    let classes = ["green"];
+    let showExp = [classes.show];
+    let assignedClasses = [classes.green];
     if (this.state.persons.length === 0) {
-      classes = ["show"];
-      showMe = ["red", "bold"].join(" ");
+      assignedClasses = [classes.show];
+      showExp = [classes.red, classes.bold].join(" ");
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>You are learning react</h1>
-        <p className={classes}>Results are available</p>
-        <p className={showMe}>Sorry no results</p>
-        <button style={style} onClick={this.togglePersonsHandler}>
+        <p className={assignedClasses}>Results are available</p>
+        <p className={showExp}>Sorry no results</p>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>
           hide me
         </button>
         {persons}

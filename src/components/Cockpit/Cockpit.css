@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .red {
   color: red;
   display: block;
@@ -20,7 +16,7 @@
   display: none;
 }
 
-.App button {
+.Cockpit button {
   background-color: #ed5565;
   text-transform: uppercase;
   color: #fff;
@@ -31,28 +27,28 @@
   letter-spacing: 2px;
 }
 
-.App button:hover {
+.Cockpit button:hover {
   background-color: #2286e4;
   color: #000;
   cursor: pointer;
 }
 
-.App button.Red {
+.Cockpit button.Red {
   background-color: #ed5565;
   color: #fff;
 }
 
-.App button.Red:hover {
+.Cockpit button.Red:hover {
   background-color: #ed5594;
   color: #000;
 }
 
-.App button.Blue {
+.Cockpit button.Blue {
   background-color: #2286e4;
   color: #fff;
 }
 
-.App button.Blue:hover {
+.Cockpit button.Blue:hover {
   background-color: aqua;
   color: #fff;
 }
